@@ -1,8 +1,9 @@
 # Pokedex
 
-Este repositório faz parte do desafio do Bootcamp DIO Potência Tech Angular - Powered By Ifood ([developer Pokedex](https://github.com/RenanJPaula/js-developer-pokedex.git)), cuja proposta é recriar uma Pokedex e inserir a funcionalidade de exibição dos dados do pokémon escolhido na lista exibida pela aplicação.
+Este repositório faz parte do desafio do Bootcamp DIO Potência Tech Angular - Powered By Ifood ([developer Pokedex](https://github.com/RenanJPaula/js-developer-pokedex.git)), cuja proposta é recriar uma Pokedex e inserir a funcionalidade de exibição dos dados do pokémon escolhido na lista exibida pela aplicação. A demonstração pode ser vista clicando [aqui](https://kmkery.github.io/Projeto-Pokedex_potencia-tech-angular-powered-by-ifood/index.html).
 
 Resumidamente, foram feitas as seguintes alterações:
+ - Inserção de mensagem de carregamento da lista;
  - Possibilidade de escolha do pokémon na lista;
  - Exibição das informações do pokémon escolhido em uma nova página, com as informações separadas por tópicos;
  - Implementação de botões de _voltar_ à lista e _"favoritar"_;
