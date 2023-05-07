@@ -27,14 +27,15 @@ const loadPokemonItens = async (offset, limit) => {
     message.classList.add('message')
     message.textContent = 'Carregando pokemons, aguarde por favor...'
     try{
-        const pokeData = await pokeApi.getPokemons(offset, limit)
-        if(!pokeData.length){        
+        const pok = await pokeApi.getPokemons(offset, limit)
+        if(!pok.length){        
             throw new Error('Não foi possível completar a lista')
         }
-        newHtml = pokeData.map(convertPokemonToLi).join('')
+        // const pokeData = await pok.json()
+        newHtml = pok.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
 
-        pokeData.map(pokemon => objPokemons.push(pokemon))
+        pok.map(pokemon => objPokemons.push(pokemon))
         localStorage.setItem('limit', objPokemons.length)
 
         message.classList.remove('message')
@@ -44,6 +45,27 @@ const loadPokemonItens = async (offset, limit) => {
         alert(error)
     }
 }
+
+
+
+
+// function loadPokemonItens(offset, limit) {
+//     let newHtml = ''
+//     message.classList.add('message') 
+//     message.textContent = "Carregando, aguarde por favor..." // mensagem enquanto carrega lista
+
+//     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+//         newHtml = pokemons.map(convertPokemonToLi).join('')
+//         pokemonList.innerHTML += newHtml 
+
+//         pokemons.map(pokemon => objPokemons.push(pokemon))
+//         localStorage.setItem('limit', objPokemons.length) // este limite será usado quando retornarmos a esta página para continuar onde parou no acesso anterior
+
+//     }).then(() => {
+//         message.classList.remove('message')
+//         message.textContent = ''
+//     })
+// }
 
 // Teste se há dados armazenados em localStorage
 if(JSON.parse(localStorage.getItem('limit'))){ //Se houver, vai continuar com base onde parou da última vez e  armazenar novo limite toda vez que atualizarmos a página. 
@@ -84,7 +106,6 @@ pokemonList.addEventListener('click', event => {
 
     localStorage.setItem('objPokemon', JSON.stringify(objPokemons[id])) // acessa o objeto do pokemon clicado
     window.location.href = "./pokemon.html"
-
 })
 
 

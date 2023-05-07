@@ -9,8 +9,8 @@ body {
 }
 
 .content {
-    min-width: 360px;
-    width: 100vw;
+    min-width: 100vw;
+    width: 100%;
     min-height: 100vh;
     padding: 1rem;
     background-color: #fff;
@@ -100,3 +100,5 @@ body {
         border-radius: 1rem;
     }
 }
+
+

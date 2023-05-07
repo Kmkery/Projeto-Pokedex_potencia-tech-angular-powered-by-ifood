@@ -1,4 +1,4 @@
-const datasheetContainer = document.querySelector('#pokemonAttributes')
+const datasheetContainer = document.querySelector('#pokemonAttributesContainer')
 const pokemonCard = document.querySelector('#pokemonCard')
 const pokemonTitle = document.querySelector('#pokemonTitle')
 const pokemonNumber = document.querySelector('#pokemonNumber')
@@ -30,7 +30,7 @@ const renderPokemonInfosCard = ({ types, type: pokeType, name, number, photo }) 
     pokemonTitle.textContent = name
     pokemonNumber.textContent = `#${number < 10 
         ? `00${number}`
-        : number >10 && number < 100 
+        : number >= 10 && number < 100 
             ? `0${number}`
             : number}`
     
@@ -55,7 +55,7 @@ const renderAboutContainer = ({ genus, height, weight, abilities, gender, eggGro
    changeBorderColor(topicsTitles[0], topicsTitles)
 
     datasheetContainer.innerHTML =  
-    `<li class="pokemonAttributes">
+    `<li class="about-attributes">
         <ol class="pokemonAttribute text-two-columns">
             <li>Species</li>
             <li>${genus}</li>
@@ -113,7 +113,7 @@ const renderBaseStatsContainer = ({ stats }) => {
     changeBorderColor(baseStatsTitle, topicsTitles)
 
     datasheetContainer.innerHTML = 
-    `<li class="pokemonAttributes">
+    `<li class="base-stats-attributes">
         ${stats.map(({ statValue, statName }) => {
             totalStats += statValue
             
@@ -149,7 +149,7 @@ const renderEvolutionContainer = ({ evolutionChain }) =>{
 
     if(hasNoEvolutionImage){
         datasheetContainer.innerHTML = 
-        `<li class="pokemonAttributes">
+        `<li class="evolution-attributes">
             <h3>Evolution Chain</h3>
             <ol class="pokemonAttribute no-image">
                 <li>
@@ -161,9 +161,9 @@ const renderEvolutionContainer = ({ evolutionChain }) =>{
             return
         }
     datasheetContainer.innerHTML = 
-    `<li class="pokemonAttributes">
+    `<li class="evolution-attributes">
         <h3>Evolution Chain</h3>
-        <ol class="pokemonAttribute image-three-columns">
+        <ol class="pokemonAttribute text-three-columns">
             <li class="evolution-title"><b>From</b></li>
             <li class="evolution-title"><b>Level</b></li>                      
             <li class="evolution-title"><b>To</b></li>
@@ -212,7 +212,7 @@ const renderMovesContainer = ({ moves }) => {
     changeBorderColor(movesTitle, topicsTitles)
 
     datasheetContainer.innerHTML =
-    `<li class="pokemonAttributes">
+    `<li class="moves-attributes">
         <h3>Moves</h3>
         <ol class="pokemonAttribute-list">
             ${moves.map(move => `<li>${move}</li>`).join('')}
